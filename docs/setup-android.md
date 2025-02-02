@@ -72,40 +72,6 @@ In order to integrate CodePush into your Android project, please perform the fol
     *Note: If you need to dynamically use a different deployment, you can also override your deployment key in JS code using [Code-Push options](./api-js.md#CodePushOptions)*
 
 
-
-#### Background React Instances
-
-*This section is only necessary if you're <b>explicitly</b> launching a React Native instance without an `Activity` (for example, from within a native push notification receiver). For these situations, CodePush must be told how to find your React Native instance.*
-
-In order to update/restart your React Native instance, CodePush must be configured with a `ReactInstanceHolder` before attempting to restart an instance in the background. This is done in your `Application` implementation.
-
-##### For React Native >= v0.29 (Background React Instances)
-
-Update the `MainApplication.java` file to use CodePush via the following changes:
-
-```java
-...
-// 1. Declare your ReactNativeHost to extend ReactInstanceHolder. ReactInstanceHolder is a subset of ReactNativeHost, so no additional implementation is needed.
-import com.microsoft.codepush.react.ReactInstanceHolder;
-
-public class MyReactNativeHost extends ReactNativeHost implements ReactInstanceHolder {
-  // ... usual overrides
-}
-
-// 2. Provide your ReactNativeHost to CodePush.
-
-public class MainApplication extends Application implements ReactApplication {
-
-   private final MyReactNativeHost mReactNativeHost = new MyReactNativeHost(this);
-
-   @Override
-   public void onCreate() {
-     CodePush.setReactInstanceHolder(mReactNativeHost);
-     super.onCreate();
-  }
-}
-```
-
 In order to effectively make use of the `Staging` and `Production` deployments that were created along with your CodePush app, refer to the [multi-deployment testing](../README.md#multi-deployment-testing) docs below before actually moving your app's usage of CodePush into production.
 
 
