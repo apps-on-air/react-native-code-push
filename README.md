@@ -45,14 +45,14 @@ In order to ensure that your end users always have a functioning version of your
 
 - iOS (7+)
 - Android (4.1+) on TLS 1.2 compatible devices
-- Windows (UWP)
+- Windows (UWP) - Not Tested. We recommend to use [microsoft/code-push-react-native](https://github.com/microsoft/react-native-code-push) 
 
 We try our best to maintain backwards compatibility of our plugin with previous versions of React Native, but due to the nature of the platform, and the existence of breaking changes between releases, it is possible that you need to use a specific version of the CodePush plugin in order to support the exact version of React Native you are using. The following table outlines which CodePush plugin versions officially support the respective React Native versions:
 
 | React Native version(s) | Supporting CodePush version(s)                                                                       |
 |-------------------------|------------------------------------------------------------------------------------------------------|
 | <v0.76                  | **Consider [microsoft/code-push-react-native](https://github.com/microsoft/react-native-code-push)** |
-| v0.76                   | v10.0+ *(Support for New Architecture)*                                                              |
+| v0.76                   | v10.0+ *(Available for Old/New Architecture)*                                                        |
 
 
 
@@ -89,7 +89,7 @@ As new core components are released, which support referencing assets, we'll upd
 Once you've followed the general-purpose ["getting started"](https://docs.microsoft.com/en-us/appcenter/distribution/codepush/index) instructions for setting up your CodePush account, you can start CodePush-ifying your React Native app by running the following command from within your app's root directory:
 
 ```shell
-npm install --save react-native-code-push
+yarn add @code-push-next/react-native-code-push
 ```
 
 As with all other React Native plugins, the integration experience is different for iOS and Android, so perform the following setup steps depending on which platform(s) you are targeting. Note, if you are targeting both platforms it is recommended to create separate CodePush applications for each platform.
