@@ -97,3 +97,7 @@ zwIDAQAB
 </resources>
  ```
 
+### Expo Integration 
+1. A pure expo react-native is not supported yet. We are planning to look into this after a while. See https://github.com/CodePushNext/react-native-code-push/issues/5
+2. A bare react-native app with expo sdk is supported, but you have to initialize rn app without `ReactNativeHostWrapper` of expo. It seems `ReactNativeHostWrapper` overrides `getJsBundleFile` internally, which prevents `CodePush` from being configured correctly.     
+   https://github.com/expo/expo/issues/25865
